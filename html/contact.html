@@ -147,115 +147,22 @@
         /* Contact Container */
         .contact-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Update the select styles in your CSS */
-.contact-form select {
-    width: 100%;
-    padding: 15px;
-    margin: 10px 0;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    font-size: 16px;
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--light-text);
-    transition: all 0.3s;
-    appearance: none; /* Remove default styling */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 15px center;
-    background-size: 20px;
-}
-
-/* Style the dropdown options */
-.contact-form select option {
-    background-color: var(--dark-bg);
-    color: var(--light-text);
-    padding: 10px;
-}
-
-/* Focus state */
-.contact-form select:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 10px rgba(0, 168, 255, 0.3);
-}
-
-/* Dropdown when opened */
-.contact-form select:active, 
-.contact-form select:focus {
-    color: var(--light-text);
-}
-
-        .contact-form input,
-        .contact-form textarea,
-        .contact-form select {
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            font-size: 16px;
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--light-text);
-            transition: all 0.3s;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus,
-        .contact-form select:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 10px rgba(0, 168, 255, 0.3);
-        }
-
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: white;
-        }
-
-        .contact-form button {
-            background: var(--primary-color);
-            color: var(--light-text);
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .contact-form button:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            grid-template-columns: 1fr;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* Contact Info */
         .contact-info {
             font-size: 18px;
+            text-align: center;
         }
 
         .contact-info p {
             margin: 20px 0;
             display: flex;
             align-items: flex-start;
+            justify-content: center;
             gap: 15px;
         }
 
@@ -330,6 +237,7 @@
 
         .footer-links li {
             margin-bottom: 10px;
+            position: relative;
         }
 
         .footer-links a {
@@ -374,12 +282,44 @@
             text-decoration: none;
         }
 
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--dark-bg);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            padding: 10px 0;
+            left: 0;
+            top: 100%;
+        }
+
+        .dropdown-menu li {
+            padding: 8px 20px;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            color: var(--light-text);
+            text-decoration: none;
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--accent-color);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
         /* Responsive Design */
         @media (max-width: 900px) {
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
             .nav-container {
                 flex-direction: column;
                 gap: 15px;
@@ -418,6 +358,12 @@
             .footer-social {
                 justify-content: center;
             }
+
+            .dropdown-menu {
+                position: static;
+                display: none;
+                width: 100%;
+            }
         }
 
         /* Animation */
@@ -444,9 +390,17 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="index.html#services">Services</a></li>
+                <li class="dropdown">
+                        <a href="javascript:void(0)">Services <i class="fas fa-caret-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="rpo-services.html">RPO Services</a></li>
+                            <li><a href="design-services.html">Design Services</a></li>
+                            <li><a href="ai.html">AI Services</a></li>
+                            <li><a href="iot.html">IOT Services</a></li>
+                        </ul>
+                    </li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="jobopportunities.html">Careers</a></li>
+                <li><a href="https://candidateportal.ceipal.com/jobs/job_description/TnlDVWIzemhRdXRHT3ZKN2t4REViUT09">Careers</a></li>
                 <li><a href="applynow.html#applynow">Apply Now</a></li>
                 <li><a href="news.html">News</a></li>
                 <li><a href="infra.html">Infrastructure</a></li>
@@ -466,38 +420,6 @@
         <div class="section-box">
             <h2>Contact Us</h2>
             <div class="contact-container">
-                <form id="contact-form" class="contact-form">
-                    <!-- Name -->
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
-
-                    <!-- Phone Number -->
-                    <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
-
-                    <!-- Email ID -->
-                    <input type="email" id="email" name="email" placeholder="Your Email ID" required>
-
-                    <!-- Location -->
-                    <input type="text" id="location" name="location" placeholder="Your Location" required>
-
-                    <!-- Company Name (Optional) -->
-                    <input type="text" id="company" name="company" placeholder="Your Company Name (Optional)">
-
-                    <!-- Preferred Contact Method -->
-                    <select id="contact_method" name="contact_method" required>
-                        <option value="">Specify the Reason</option>
-                        <option value="job">Job related</option>
-                        <option value="business">Business related</option>
-                        <option value="general">General / Others</option>
-                        <option value="hr">Contact HR</option>
-                    </select>
-
-                    <!-- How Can We Help You? -->
-                    <textarea id="message" name="message" placeholder="How Can We Help You?" rows="5" required></textarea>
-
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
-                </form>
-
                 <div class="contact-info">
                     <h3>Get in Touch</h3>
                     <p><i class="fas fa-map-marker-alt"></i>QuantumPulse Technologies, 6th,7th Floor, Kochar Globe, Ambedkar Nagar, SIDCO Industrial Estate, Guindy, Chennai - 600032</p>
@@ -531,13 +453,10 @@
             </div>
             <div class="footer-links">
                 <ul>
-                    <li><a href="jobopportunities.html">Careers</a></li>
+                    <li><a href="https://candidateportal.ceipal.com/jobs/job_description/TnlDVWIzemhRdXRHT3ZKN2t4REViUT09">Careers</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
                     <li><a href="news.html">News</a></li>
                     <li><a href="life.html">QP Culture</a></li>
-                    
-
                 </ul>
             </div>
             <div class="footer-social">
@@ -552,37 +471,8 @@
         </div>
     </footer>
 
-    <!-- EmailJS Script -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-        // Initialize EmailJS with your User ID
-        emailjs.init('YOUR_USER_ID'); // Replace with your EmailJS User ID
-
-        // Handle form submission
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Show loading state
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
-
-            // Send email using EmailJS
-            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-                .then(function(response) {
-                    alert('Message sent successfully! We will get back to you soon.');
-                    document.getElementById('contact-form').reset();
-                }, function(error) {
-                    alert('Failed to send message. Please try again or contact us directly.');
-                })
-                .finally(function() {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                });
-        });
-
-        // Add smooth scrolling for navigation links
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -591,18 +481,27 @@
                 });
             });
         });
-    </script>
 
-    <script>
-        // Add this to your script section
-document.querySelectorAll('select').forEach(select => {
-    select.addEventListener('click', function() {
-        this.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-    });
-    select.addEventListener('blur', function() {
-        this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-    });
-});
+        // Mobile dropdown toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('a');
+                
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 600) {
+                        e.preventDefault();
+                        const menu = this.nextElementSibling;
+                        if (menu.style.display === 'block') {
+                            menu.style.display = 'none';
+                        } else {
+                            menu.style.display = 'block';
+                        }
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
