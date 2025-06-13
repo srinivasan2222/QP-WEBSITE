@@ -58,8 +58,8 @@
         }
         
         .container {
-            width: 90%;
-            max-width: 1400px;
+            width: 100%;
+            max-width: 1850px;
             margin: 0 auto;
         }
         
@@ -76,38 +76,49 @@
         }
         
         .logo img {
-            height: 48px;
+            height: 100px;
             width: auto;
         }
         
         .logo-text h1 {
             font-size: 1.8rem;
-            background: linear-gradient(to right, var(--secondary), var(--accent));
+            background: linear-gradient(to right, white);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: -0.5px;
         }
         
+         .logo-text h2 {
+            font-size: 1.8rem;
+            background: linear-gradient(to right, white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+            margin-left: 12px;
+        }
+
         .logo-text p {
             font-size: 0.85rem;
             opacity: 0.9;
             color: rgba(255,255,255,0.8);
+            margin-left: 25px;
         }
         
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 5px;
         }
         
         nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: 500;
-            font-size: 1.05rem;
+            font-size: 20px;
             transition: all 0.3s ease;
             position: relative;
             padding: 0.5rem 0;
+            margin-left: 50px;
         }
         
         nav ul li a::after {
@@ -318,7 +329,7 @@
         /* Partners Section */
         .partners {
             background-color: white;
-            padding: 3rem 0;
+            padding: 3.2rem 0;
         }
         
         .partners-container {
@@ -326,14 +337,15 @@
             justify-content: space-around;
             align-items: center;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 10px;
+            width: 1800px;
         }
         
         .partner-logo {
-            height: 60px;
-            opacity: 0.7;
+            height: 500px;
+            width: 400px;
+            opacity: 1;
             transition: all 0.3s ease;
-            filter: grayscale(100%);
         }
         
         .partner-logo:hover {
@@ -1397,6 +1409,7 @@
                     <img src="/images/Quantum-pulse-Technologies-logo.png" alt="QuantumPulse Logo">
                     <div class="logo-text">
                         <h1>QuantumPulse</h1>
+                        <h2>Technologies</h2>
                         <p>Engineering the future</p>
                     </div>
                 </div>
@@ -1405,7 +1418,7 @@
                         <li><a href="/index.html">Home</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="infra.html">Infrastructure</a></li>
-                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -1433,11 +1446,10 @@
     <section class="partners">
         <div class="container">
             <div class="partners-container">
-                <img src="https://via.placeholder.com/150x60?text=Shri+Eshwar" alt="Shri Eshwar College" class="partner-logo">
-                <img src="https://via.placeholder.com/150x60?text=Tech+India" alt="Tech India" class="partner-logo">
-                <img src="https://via.placeholder.com/150x60?text=Innovate+Corp" alt="Innovate Corp" class="partner-logo">
-                <img src="https://via.placeholder.com/150x60?text=Future+Labs" alt="Future Labs" class="partner-logo">
-                <img src="https://via.placeholder.com/150x60?text=Global+Eng" alt="Global Engineering" class="partner-logo">
+                <img src="/images/news7.jpg" alt="Shri Eshwar College" class="partner-logo">
+                <img src="/images/news8.jpg" alt="Shri Eshwar College" class="partner-logo">
+                <img src="/images/news9.jpg" alt="Shri Eshwar College" class="partner-logo">
+                <img src="/images/news10.jpg" alt="Shri Eshwar College" class="partner-logo">
             </div>
         </div>
     </section>
@@ -1465,9 +1477,7 @@
                             <li>Capabilities: Up to 0.1mm precision</li>
                             <li>Supported formats: DXF, DWG, AI, SVG</li>
                         </ul>
-                        <div class="facility-cta">
-                            <a href="#contact" class="btn">Request Access</a>
-                        </div>
+            
                     </div>
                 </div>
                 
@@ -1485,9 +1495,7 @@
                             <li>Max build volume: 300 × 300 × 400mm</li>
                             <li>Scan resolution: Up to 0.05mm</li>
                         </ul>
-                        <div class="facility-cta">
-                            <a href="#contact" class="btn">Start Your Project</a>
-                        </div>
+            
                     </div>
                 </div>
                 
@@ -1505,9 +1513,6 @@
                             <li>Payload capacity testing up to 5kg</li>
                             <li>Custom flight controller programming</li>
                         </ul>
-                        <div class="facility-cta">
-                            <a href="#contact" class="btn">Explore Lab</a>
-                        </div>
                     </div>
                 </div>
             </div>

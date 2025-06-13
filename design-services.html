@@ -31,20 +31,20 @@
         }
         
         #video-background {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        min-width: 100%;
-        min-height: 100%;
-        z-index: -1;
-        opacity: 0.7; /* Adjust transparency */
-        background: ('https://youtu.be/qPbS_mBFAkg?si=Pgjf6gmDBnE8K10i');
-    }
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            opacity: 0.7;
+            object-fit: cover;
+        }
     
-    /* Make canvas semi-transparent to show video */
-    canvas {
-        mix-blend-mode: screen;
-    }
+        /* Make canvas semi-transparent to show video */
+        canvas {
+            mix-blend-mode: screen;
+        }
 
         body {
             background-color: var(--dark);
@@ -54,7 +54,7 @@
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1700px;
             margin: 0 auto;
             padding: 0 40px;
         }
@@ -66,30 +66,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: -2;
             background: linear-gradient(-45deg, #26436e, #071424, #1a1a2e, #16213e);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
         }
         
-        #youtube-background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        pointer-events: none;
-        background: src('https://youtu.be/qPbS_mBFAkg?si=Pgjf6gmDBnE8K10i');
-        }
-
-        #particles-js {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-    }
-
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -163,11 +145,22 @@
         }
         
         .logo-text {
-            font-size: 24px;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .quantumpulse {
+            font-size: 25px;
             font-weight: 700;
-            background: linear-gradient(to right, var(--secondary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: white;
+        }
+
+        .technologies {
+            font-size: 23px;
+            font-weight: 500;
+            color: white;
+            letter-spacing: 1px;
         }
         
         nav ul {
@@ -232,8 +225,8 @@
 
         .hero-buttons {
             display: flex;
-            gap: 5px;/* This creates space between buttons */
-            margin-left: 80px;
+            gap: 20px;
+            margin-left: 600px;
             margin-top: 30px;
         }
 
@@ -280,6 +273,7 @@
         .hero-content {
             position: relative;
             z-index: 1;
+            width: 100%;
         }
         
         .hero h1 {
@@ -287,7 +281,7 @@
             font-weight: 700;
             margin-bottom: 20px;
             color: var(--light);
-            margin-left: 80px;
+            margin-left: 470px;
         }
         
         .hero h1 span {
@@ -295,14 +289,14 @@
         }
         
         .hero p {
-            font-size: clamp(25px, 6vw, 22px);
+            font-size: clamp(18px, 4vw, 22px);
             font-weight: bolder;
             color: var(--text-light);
             max-width: 800px;
             margin-bottom: 40px;
-            line-height: 1.2;
+            line-height: 1.4;
+            margin-left: 450px;
         }
-        
         
         .hero-image {
             position: absolute;
@@ -321,47 +315,14 @@
             100% { transform: translateY(-50%) translateX(0); }
         }
         
-        /* Button Styles */
-        .btn {
-            display: inline-block;
-            background: transparent;
-            color: var(--secondary);
-            padding: 15px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 1px solid var(--secondary);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            margin-left: 80px;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: rgba(100, 255, 218, 0.1);
-            transition: width 0.3s ease;
-            z-index: -1;
-        }
-        
-        .btn:hover::before {
-            width: 100%;
-        }
-        
         /* Section Styles */
         section {
-            padding: 130px 0;
+            padding: 100px 0;
             position: relative;
         }
         
         .section-title {
-            margin-bottom: 80px;
+            margin-bottom: 60px;
             position: relative;
         }
         
@@ -420,6 +381,7 @@
             width: 100%;
             max-width: 500px;
             border-radius: 5px;
+            height: 400px;
             filter: grayscale(100%) contrast(1);
             transition: all 0.3s ease;
         }
@@ -448,7 +410,7 @@
         .expertise-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 40px;
+            gap: 80px;
         }
         
         .expertise-card {
@@ -513,7 +475,8 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+            gap: 80px;
+            height: 600px;
         }
         
         .service-card {
@@ -805,6 +768,17 @@
                 right: 0;
             }
             
+            .hero h1,
+            .hero p,
+            .hero-buttons {
+                margin-left: 0;
+                text-align: center;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
             .hero-image {
                 display: none;
             }
@@ -841,6 +815,11 @@
             .services-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -860,18 +839,24 @@
         <div class="container header-container">
             <a href="index.html" class="logo">
                 <div class="logo-img">QP</div>
-                <div class="logo-text">QuantumPulse</div>
+                <div class="logo-text">
+                    <span class="quantumpulse">QUANTUMPULSE</span>
+                    <span class="technologies">TECHNOLOGIES</span>
+                </div>
             </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
             <nav>
                 <ul id="navMenu">
                     <li><a href="index.html"><span class="nav-number"></span> Home</a></li>
                     <li><a href="about.html"><span class="nav-number"></span> About</a></li>
                     <li><a href="design-services.html" class="active"><span class="nav-number"></span> Design Services</a></li>
-                    <li><a href="contact.html"><span class="nav-number"></span> Contact</a></li>
-                    <li><a href="https://candidateportal.ceipal.com/jobs/job_description/TnlDVWIzemhRdXRHT3ZKN2t4REViUT09"><span class="#"></span>Careers</a></li>
+                    <li><a href="/jobopportunities.html">Careers</a></li>
                     <li><a href="news.html">News</a></li>
                     <li><a href="infra.html">Infrastructure</a></li>
                     <li><a href="life.html">Culture@QP</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -1033,18 +1018,17 @@
                 <div class="footer-col animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="design-services.html">Design Services</a></li>
                         <li><a href="rpo-services.html">RPO Services</a></li>
-                        <li><a href="protobuilt.html">Proto Build</a></li>
+                        <li><a href="design-services.html">Design Services</a></li>
+                        <li><a href="iot.html">IOT Services</a></li>
+                        <li><a href="ai.html">AI Services</a></li>
                     </ul>
                 </div>
                 <div class="footer-col animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
                     <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Ignite Startup Accelerator</p>
-                    <p><i class="fas fa-phone"></i> +91 99522 29211</p>
-                    <p><i class="fas fa-envelope"></i> info@quantumpulse.tech</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 6th,7th Floor, Kochar Globe, Ambedkar Nagar, SIDCO Industrial Estate, Guindy, Chennai - 600032</p>
+                    <p><i class="fas fa-phone"></i>9952229211</p>
+                    <p><i class="fas fa-envelope"></i> info@quantumpulse.ltd</p>
                     <a href="contact.html" class="btn" style="margin-top: 20px;">Get In Touch</a>
                 </div>
             </div>
@@ -1052,10 +1036,6 @@
                 <p>&copy; 2024 QuantumPulse Technologies Pvt. Ltd. | <a href="/privacy-policy.html">Privacy Policy</a></p>
             </div>
         </div>
-
-        <div id="youtube-background"></div>
-        <div id="particles-js"></div>
-        
     </footer>
 
     <script>
@@ -1125,6 +1105,13 @@
             animateOnScroll();
             window.addEventListener('scroll', animateOnScroll);
         });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            animateOnScroll();
+            window.addEventListener('scroll', animateOnScroll);
+        });
 
     // YouTube API for background video
     const tag = document.createElement('script');
@@ -1180,6 +1167,5 @@
         }
     });
 </script>
-
 </body>
 </html>

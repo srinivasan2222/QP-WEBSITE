@@ -122,7 +122,7 @@
 
         .nav-links ul {
            list-style: none;
-           display: flex;
+           display: block;
            gap: 80px;
            margin: 0;
            padding: 0;
@@ -130,6 +130,7 @@
         .nav-links a {
             color: black;
             font-weight: 600;
+            width: 150px;
             position: relative;
             font-size: 1.4rem;
             transition: var(--transition);
@@ -138,7 +139,7 @@
 
         .nav-links li {
             list-style: none;
-            position: relative; /* or flex */
+            position: relative;
         }
 
         .nav-links a.active {
@@ -192,7 +193,7 @@
             top: 100%;
             left: 0;
             background: var(--white);
-            min-width: 200px;
+            min-width: 100px;
             padding: 15px 0;
             box-shadow: var(--box-shadow);
             border-radius: var(--border-radius);
@@ -406,6 +407,7 @@
         /* Events Gallery Section */
         .events-gallery {
             padding: 80px 0;
+            margin-left: 20px;
             background-color: var(--light-color);
         }
 
@@ -626,8 +628,8 @@
 
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
             margin-bottom: 40px;
         }
 
@@ -653,7 +655,7 @@
 
         .news-image {
             position: relative;
-            height: 200px;
+            height: 100px;
             overflow: hidden;
         }
 
@@ -937,6 +939,14 @@
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
             }
             
+            @media (min-width: 993px)
+            {
+                .dropdown:hover .dropdown-menu
+                {
+                    display: block;
+                }
+            }
+
             .nav-links.active {
                 display: flex;
             }
@@ -1057,11 +1067,11 @@
                 <li><a href="iot.html">IOT Services</a></li>
             </ul>
         </li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="https://candidateportal.ceipal.com/jobs/job_description/TnlDVWIzemhRdXRHT3ZKN2t4REViUT09">Careers</a></li>
+        <li><a href="/jobopportunities.html">Careers</a></li>
         <li><a href="news.html">News</a></li>
         <li><a href="infra.html">Infrastructure</a></li>
         <li><a href="life.html">Culture @QP</a></li>
+         <li><a href="contact.html">Contact</a></li>
     </div>
     <div class="mobile-menu-btn">
         <i class="fas fa-bars"></i>
@@ -1085,6 +1095,55 @@
         </div>
     </section>
 
+            <!-- Events Gallery Section -->
+            <section class="events-gallery">
+                <div class="section-header">
+                    <h2>Our Events Gallery</h2>
+                    <p class="subtitle">Explore moments from our conferences, hackathons, and community events that showcase our quantum technology journey</p>
+                </div>
+                
+                <div class="gallery-container">
+                    <!-- Event 1 -->
+                    <div class="gallery-item">
+                        <img src="/images/n2.jpg" alt="Quantum Summit 2023" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <span class="event-date"><i class="far fa-calendar-alt"></i> May 5, 2025</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 2 -->
+                    <div class="gallery-item">
+                        <img src="/images/events5.jpg" alt="Hackathon Winners" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <span class="event-date"><i class="far fa-calendar-alt"></i>2025</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 3 -->
+                    <div class="gallery-item">
+                        <img src="/images/news9.jpg" alt="Partnership Announcement" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <span class="event-date"><i class="far fa-calendar-alt"></i>2025</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 4 -->
+                    <div class="gallery-item">
+                        <img src="/images/n3.jpg" alt="Facility Opening" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <span class="event-date"><i class="far fa-calendar-alt"></i>2025</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 5 -->
+                    <div class="gallery-item">
+                        <img src="/images/events6.jpg" alt="Team Building" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <span class="event-date"><i class="far fa-calendar-alt"></i>2025</span>
+                        </div>
+                    </div>
+                </div>
+                
     <!-- Main Content -->
     <main class="news-main">
         <div class="container">
@@ -1106,134 +1165,20 @@
                 </div>
             </section>
 
-            <!-- Events Gallery Section -->
-            <section class="events-gallery">
-                <div class="section-header">
-                    <h2>Our Events Gallery</h2>
-                    <p class="subtitle">Explore moments from our conferences, hackathons, and community events that showcase our quantum technology journey</p>
-                </div>
-                
-                <div class="gallery-container">
-                    <!-- Event 1 -->
-                    <div class="gallery-item">
-                        <img src="/images/n2.jpg" alt="Quantum Summit 2023" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="event-title">Quantum Summit 2025</h3>
-                            <span class="event-date"><i class="far fa-calendar-alt"></i> May 5, 2025</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Event 2 -->
-                    <div class="gallery-item">
-                        <img src="/images/events5.jpg" alt="Hackathon Winners" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="event-title">Quantum Hackathon</h3>
-                            <span class="event-date"><i class="far fa-calendar-alt"></i> March 18-20, 2023</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Event 3 -->
-                    <div class="gallery-item">
-                        <img src="/images/p1.jpg" alt="Partnership Announcement" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="event-title">Strategic Partnership</h3>
-                            <span class="event-date"><i class="far fa-calendar-alt"></i> May 28, 2023</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Event 4 -->
-                    <div class="gallery-item">
-                        <img src="/images/p2.jpg" alt="Facility Opening" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="event-title">Boston Facility Opening</h3>
-                            <span class="event-date"><i class="far fa-calendar-alt"></i> April 5, 2023</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Event 5 -->
-                    <div class="gallery-item">
-                        <img src="/images/p3.jpg" alt="Research Symposium" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="event-title">Research Symposium</h3>
-                            <span class="event-date"><i class="far fa-calendar-alt"></i> April 22, 2023</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Event 6 -->
-                    <div class="gallery-item">
-                        <img src="/images/events6.jpg" alt="Team Building" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="event-title">Team Building Retreat</h3>
-                            <span class="event-date"><i class="far fa-calendar-alt"></i> February 10, 2023</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="view-more-btn">
-                    <button class="btn">View All Events</button>
-                </div>
-            </section>
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightbox-modal">
+        <span class="close-lightbox">&times;</span>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-image" id="lightbox-image">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+        <div class="lightbox-nav">
+            <button id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button id="next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
 
-            <!-- News Grid -->
-            <section class="news-grid">
-                <div class="section-header">
-                    <h2>Latest Updates</h2>
-                    <div class="filter-controls">
-                        <button class="filter-btn active" data-filter="all">All</button>
-                        <button class="filter-btn" data-filter="research">Research</button>
-                        <button class="filter-btn" data-filter="announcements">Announcements</button>
-                        <button class="filter-btn" data-filter="events">Events</button>
-                    </div>
-                </div>
-
-                <div class="grid-container">
-                    <!-- News Item 1 -->
-                    <article class="news-card announcements" data-date="2025-03-07">
-                       <div class="news-image">
-                           <img src="/images/iso.jpg" alt="ISO 9001:2015 Certification">
-                           <div class="category-badge">Announcements</div>
-                       </div>
-                       <div class="news-content">
-                            <span class="date">March 7, 2025</span>
-                            <h3>QuantumPulse Achieves ISO 9001:2015 Certification</h3>
-                            <p>We're proud to announce our ISO 9001:2015 certification (Certificate No: EAS/INO/11992), recognizing our commitment to quality management in RPO, Engineering Design Services and Proto Build. This certification validates our systematic approach to delivering exceptional quantum technology solutions.</p>
-                            <a href="/images/iso.jpg" class="read-more" download="QuantumPulse_ISO_Certificate.jpg">View Certificate <i class="fas fa-arrow-right"></i></a>
-                       </div>
-                    </article>
-                    <!-- News Item 2 -->
-                    <article class="news-card announcements" data-date="2023-05-28">
-                        <div class="news-image">
-                            <img src="/images/events1.jpg" alt="Partnership">
-                            <div class="category-badge">Announcements</div>
-                        </div>
-                        <div class="news-content">
-                            <span class="date">May 15, 2025</span>
-                            <h3>QuantumPulse Expo</h3>
-                            <p>Our team members attending design technology expo at sri eeshwar engineering college. where they have iot labs and design Facilies.</p>
-                            <a href="#" class="read-more">Read More</a>
-                        </div>
-                    </article>
-
-                    <!-- News Item 3 -->
-                    <article class="news-card events" data-date="2023-05-15">
-                        <div class="news-image">
-                            <img src="/images/L1.jpg" alt="Quantum Conference">
-                            <div class="category-badge">Events</div>
-                        </div>
-                        <div class="news-content">
-                            <span class="date">March 15, 2025</span>
-                            <h3>Quatumpulse Technologies New Staff</h3>
-                            <p>Our new joinees with welcome certificate</p>
-                            <a href="#" class="read-more">Read More</a>
-                        </div>
-                    </article>
-
-                <div class="load-more-container">
-                    <button class="load-more-btn">Load More News</button>
-                </div>
-            </section>
-
-            <!-- Newsletter -->
+     <!-- Newsletter -->
             <section class="newsletter-section">
                 <div class="newsletter-container">
                     <div class="newsletter-content">
@@ -1249,18 +1194,6 @@
         </div>
     </main>
 
-    <!-- Lightbox Modal -->
-    <div class="lightbox-modal" id="lightbox-modal">
-        <span class="close-lightbox">&times;</span>
-        <div class="lightbox-content">
-            <img src="" alt="" class="lightbox-image" id="lightbox-image">
-            <div class="lightbox-caption" id="lightbox-caption"></div>
-        </div>
-        <div class="lightbox-nav">
-            <button id="prev-btn"><i class="fas fa-chevron-left"></i></button>
-            <button id="next-btn"><i class="fas fa-chevron-right"></i></button>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="news-footer">
@@ -1280,7 +1213,7 @@
                     <h4>Company</h4>
                     <ul>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="https://candidateportal.ceipal.com/jobs/job_description/TnlDVWIzemhRdXRHT3ZKN2t4REViUT09">Careers</a></li>
+                        <li><a href="/jobopportunities.html">Careers</a></li>
                         <li><a href="about.html">Leadership</a></li>
                         <li><a href="/news.html">News</a></li>
                         <li><a href="contact.html">Contact</a></li>

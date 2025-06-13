@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Form - QuantumPulse Technologies</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+      padding: 2rem;
+    }
+    
+    /* Navigation */
+    nav {
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .logo img {
+      height: 40px;
+    }
+    
+    .company-name {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    
+    .quantumpulse {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #2c3e50;
+    }
+    
+    .technologies {
+      font-size: 0.9rem;
+      color: #7f8c8d;
+    }
+    
+    /* Form Container */
+    .apply-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+    
+    .apply-container h2 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    
+    .apply-container p {
+      color: #7f8c8d;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #2c3e50;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    
+    button[type="submit"] {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 100%;
+    }
+    
+    button[type="submit"]:hover {
+      background-color: #2980b9;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      padding: 3rem 0 1rem;
+      margin-top: 2rem;
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    
+    .footer-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .footer-logo img {
+      height: 40px;
+    }
+    
+    .footer-company-name {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    
+    .footer-logo p {
+      color: #bdc3c7;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links a {
+      color: #ecf0f1;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: #3498db;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .footer-social a {
+      color: #ecf0f1;
+      transition: color 0.3s;
+    }
+    
+    .footer-social a:hover {
+      color: #3498db;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid #34495e;
+    }
+    
+    .footer-bottom p {
+      color: #bdc3c7;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <div class="logo">
+        <img src="/images/Quantum-pulse-Technologies-logo.png" alt="Quantum Pulse Logo">
+        <div class="company-name">
+          <span class="quantumpulse">QUANTUMPULSE</span>
+          <span class="technologies">TECHNOLOGIES</span>
+        </div>
+      </div>
+      <a href="jobopportunities.html" style="text-decoration: none; color: #2c3e50; font-weight: 500;">Back to Jobs</a>
+    </div>
+  </nav>
+
+  <div class="apply-container">
+    <h2>Apply for Jobs</h2>
+    <p>Join our team and grow your career with us!</p>
+    <form id="jobApplicationForm">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+      </div>
+      <div class="form-group">
+        <label for="position">Position Applied For</label>
+        <select id="position" name="position" required>
+          <option value="">Select a position</option>
+          <option value="Software Engineer">Software Engineer</option>
+          <option value="Hardware Engineer">Hardware Engineer</option>
+          <option value="Design Engineer">Design Engineer</option>
+          <option value="Recruitment Specialist">Recruitment Specialist</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="type">Type Of</label>
+        <select id="type" name="type" required>
+          <option value="">Select your Type</option>
+          <option value="Fresher">Fresher</option>
+          <option value="Experienced">Experienced</option>
+          <option value="Fresher-INTERN">Fresher-intern</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="resume">Upload Resume</label>
+        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+      </div>
+      <div class="form-group">
+        <label for="coverLetter">Intro</label>
+        <textarea id="coverLetter" name="coverLetter" rows="5" placeholder="YOUR INTRO HERE IN SHORT..." required></textarea>
+      </div>
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="/images/Quantum-pulse-Technologies-logo.png" alt="Quantum Pulse Logo">
+        <div class="footer-company-name">
+          <span class="quantumpulse">QUANTUMPULSE</span>
+          <span class="technologies">TECHNOLOGIES</span>
+        </div>
+        <p>Unlock Talent, Accelerate Innovation</p>
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Quantum Pulse Technologies Pvt. Ltd.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  // DOM Elements
+  const jobApplicationForm = document.getElementById('jobApplicationForm');
+  const positionSelect = document.getElementById('position');
+  const typeSelect = document.getElementById('type');
+  
+  // Get position from URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const positionParam = urlParams.get('position');
+
+  // Default fallback data in case JSON fails to load
+  const fallbackData = {
+    positions: [
+      "Software Engineer",
+      "Hardware Engineer",
+      "Design Engineer",
+      "Recruitment Specialist"
+    ],
+    types: [
+      "Fresher",
+      "Experienced"
+    ]
+  };
+
+  // Function to populate dropdowns
+  function populateDropdowns(data) {
+    // Clear existing options (keeping the first empty option)
+    positionSelect.innerHTML = '<option value="">Select a position</option>';
+    typeSelect.innerHTML = '<option value="">Select your Type</option>';
+    
+    // Populate positions
+    data.positions.forEach(position => {
+      const option = document.createElement('option');
+      option.value = position;
+      option.textContent = position;
+      positionSelect.appendChild(option);
+    });
+    
+    // Populate types
+    data.types.forEach(type => {
+      const option = document.createElement('option');
+      option.value = type;
+      option.textContent = type;
+      typeSelect.appendChild(option);
+    });
+    
+    // Set position from URL if provided
+    if (positionParam) {
+      positionSelect.value = positionParam;
+    }
+  }
+
+  // Function to handle form submission
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    
+    // Form validation
+    const formData = new FormData(jobApplicationForm);
+    const requiredFields = ['fullName', 'email', 'phone', 'position', 'type', 'resume'];
+    
+    for (const field of requiredFields) {
+      if (!formData.get(field)) {
+        alert(`Please fill in the ${field.replace(/([A-Z])/g, ' $1').toLowerCase()} field`);
+        return;
+      }
+    }
+    
+    //typically send the data to your server
+    alert('Thank you for your application! We will review your information and get back to you soon.');
+    
+    // Reset form
+    jobApplicationForm.reset();
+    
+    // sendApplicationToServer(formData);
+  }
+
+  // Function to load job data from JSON
+  function loadJobData() {
+    fetch('jobs.json?t=' + new Date().getTime()) // Cache busting
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        populateDropdowns(data);
+      })
+      .catch(error => {
+        console.error('Error loading job data:', error);
+        // Use fallback data if JSON fails to load
+        populateDropdowns(fallbackData);
+      });
+  }
+
+  // Example function for sending data to server (would need backend implementation)
+  function sendApplicationToServer(formData) {
+    fetch('/api/job-application', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Application submission failed');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Application submitted successfully:', data);
+    })
+    .catch(error => {
+      console.error('Error submitting application:', error);
+      alert('There was an error submitting your application. Please try again later.');
+    });
+  }
+
+  // Initialize
+  loadJobData();
+  jobApplicationForm.addEventListener('submit', handleFormSubmit);
+});
+  </script>
+</body>
+</html>

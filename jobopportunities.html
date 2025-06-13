@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QP JOBS - QuantumPulse Technologies</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Modern Reset */
+    * {
+      margin-left: 5px;
+      padding: 1px;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    :root {
+      --primary: #05489f;
+      --primary-dark: #084294;
+      --secondary: #f97316;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #94a3b8;
+      --dark-gray: #64748b;
+    }
+
+    body {
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: #f1f5f9;
+    }
+
+    /* Navigation Styles - Modernized */
+    nav {
+      background-color: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px;
+      max-width: 1900px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo img {
+      height: 60px;
+      width: auto;
+    }
+
+    .company-name {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .quantumpulse {
+      font-weight: 700;
+      font-size: 1.7rem;
+      color: var(--dark);
+    }
+
+    .technologies {
+      font-size:1.8rem;
+      color: var(blue);
+      font-weight: 500;
+      margin-left: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 3rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 21px;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 0.5rem 0;
+      list-style: none;
+      width: 220px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      transform: translateY(10px);
+      z-index: 10;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu li {
+      padding: 0.5rem 1.5rem;
+      transition: background-color 0.2s;
+    }
+
+    .dropdown-menu li:hover {
+      background-color: #f8fafc;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      color: var(--dark);
+      font-size: 0.95rem;
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-icons a {
+      color: var(--dark);
+      transition: color 0.2s;
+      font-size: 25px;
+    }
+
+    .nav-icons a:hover {
+      color: var(--primary);
+    }
+
+    .toggle_btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--dark);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #053770 0%, #03397f 100%);
+      color: white;
+      padding: 5rem 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+    }
+
+    /* Main Content - Modern Grid Layout */
+    .jobs-container {
+      max-width: 2000px;
+    }
+
+    .jobs-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .jobs-header h2 {
+      font-size: 2rem;
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    .filter-controls {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .filter-controls select, .filter-controls input {
+      padding: 0.6rem 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      background-color: white;
+    }
+
+    .job-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+      gap: 2rem;
+    }
+
+    .job-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 1px solid #e2e8f0;
+    }
+
+    .job-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      border-color: var(--primary);
+    }
+
+    .job-card-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .job-card-header h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+
+    .job-meta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .job-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+      color: var(--dark-gray);
+    }
+
+    .job-meta-item i {
+      font-size: 0.8rem;
+    }
+
+    .job-type {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background-color: #e0f2fe;
+      color: #0369a1;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .job-card-body {
+      padding: 1.5rem;
+    }
+
+    .job-description {
+      color: var(--dark-gray);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .job-card-footer {
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    .apply-link {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+      text-align: center;
+      width: 100%;
+    }
+
+    .apply-link:hover {
+      background-color: var(--primary-dark);
+      color: white;
+    }
+
+    /* Featured Job Banner */
+    .featured-banner {
+      background-color: #ffedd5;
+      color: #9a3412;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Footer - Modernized */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 3rem 1rem;
+    }
+
+    .footer-container {
+      max-width: 1900px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .footer-logo img {
+      height: 200px;
+      width: 300px;
+    }
+
+    .footer-company-name {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .footer-logo p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .footer-links h4 {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-social {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .footer-social h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0;
+      font-weight: 600;
+      color: white;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .social-icons a {
+      color: var(--gray);
+      transition: color 0.3s;
+      font-size: 1.3rem;
+    }
+
+    .social-icons a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #334155;
+    }
+
+    .footer-bottom p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1200px) {
+      .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .nav-links, .nav-icons {
+        display: none;
+      }
+
+      .toggle_btn {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .job-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 4rem 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .jobs-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .filter-controls {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .filter-controls select, .filter-controls input {
+        width: 100%;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-logo, .footer-links {
+        text-align: center;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <div class="logo">
+        <img src="/images/Quantum-pulse-Technologies-logo.png" alt="Quantum Pulse Logo">
+        <div class="company-name">
+          <span class="quantumpulse">QUANTUMPULSE</span>
+          <span class="technologies">TECHNOLOGIES</span>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0);" id="services-dropdown">Services <i class="fas fa-caret-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="rpo-services.html">RPO Services</a></li>
+            <li><a href="design-services.html">Design Services</a></li>
+            <li><a href="ai.html">AI Services</a></li>
+            <li><a href="iot.html">IOT Services</a></li>
+          </ul>
+        </li>
+        <li><a href="infra.html">Infrastructure</a></li>
+        <li><a href="jobopportunities.html">Careers</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-icons">
+        <a href="https://www.linkedin.com/company/quantum-pulse-technologies/"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/919952229211"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <button class="toggle_btn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Join Our Innovative Team</h1>
+    <h2>CREATING EMPLOYABILITY WITHIN US</h2>
+  </section>
+
+    <div class="job-grid">
+      <!-- Job Card 1 -->
+      <div class="job-card">
+        <div class="job-card-header">
+          <h3>Network/System Engineer</h3>
+          <div class="job-meta">
+            <span class="job-meta-item">
+              <i class="fas fa-map-marker-alt"></i> Multiple Locations
+            </span>
+            <span class="job-meta-item">
+              <i class="far fa-clock"></i> Full-time
+            </span>
+          </div>
+          <span class="job-type">Engineering</span>
+        </div>
+        <div class="job-card-body">
+          <p class="job-description">
+            We are seeking a skilled Network/System Engineer to design, implement, and maintain our network infrastructure. 
+            The ideal candidate will have experience with cloud networking and security protocols.
+          </p>
+        </div>
+        <div class="job-card-footer">
+          <a href="https://candidateportal.ceipal.com/jobs/job_description/YTJxRGlxZ3hXd2RZNGNRb2JqK1B6QT09" class="apply-link" target="_blank">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- Job Card 2 -->
+      <div class="job-card">
+        <div class="job-card-header">
+          <h3>Java Full Stack Developer</h3>
+          <div class="job-meta">
+            <span class="job-meta-item">
+              <i class="fas fa-map-marker-alt"></i> Remote/Hybrid
+            </span>
+            <span class="job-meta-item">
+              <i class="far fa-clock"></i> Full-time
+            </span>
+          </div>
+          <span class="job-type">Development</span>
+        </div>
+        <div class="job-card-body">
+          <p class="job-description">
+            Join our development team to build innovative web applications using Java and modern frontend technologies. 
+            Experience with Spring Boot and React is highly desirable.
+          </p>
+        </div>
+        <div class="job-card-footer">
+          <a href="https://candidateportal.ceipal.com/jobs/job_description/Vkw0U3I2WFlMZWgxY25scEV3MjVlZz09" class="apply-link" target="_blank">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- Job Card 3 -->
+      <div class="job-card">
+        <div class="job-card-header">
+          <h3>Software Testing Engineer</h3>
+          <div class="job-meta">
+            <span class="job-meta-item">
+              <i class="fas fa-map-marker-alt"></i> Bangalore
+            </span>
+            <span class="job-meta-item">
+              <i class="far fa-clock"></i> Contract
+            </span>
+          </div>
+          <span class="job-type">Quality Assurance</span>
+        </div>
+        <div class="job-card-body">
+          <p class="job-description">
+            Quality assurance professional needed to ensure our software products meet the highest standards. 
+            Experience with automated testing frameworks required.
+          </p>
+        </div>
+        <div class="job-card-footer">
+          <a href="https://candidateportal.ceipal.com/jobs/job_description/M01BaVBCdnhFTmpKeVMzZFM5T2RFdz09" class="apply-link" target="_blank">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- Job Card 4 -->
+      <div class="job-card">
+        <div class="job-card-header">
+          <h3>.NET Developer</h3>
+          <div class="job-meta">
+            <span class="job-meta-item">
+              <i class="fas fa-map-marker-alt"></i> Chennai
+            </span>
+            <span class="job-meta-item">
+              <i class="far fa-clock"></i> Full-time
+            </span>
+          </div>
+          <span class="job-type">Development</span>
+        </div>
+        <div class="job-card-body">
+          <p class="job-description">
+            Experienced .NET developer to design and implement software solutions using Microsoft technologies. 
+            Strong knowledge of C# and ASP.NET Core required.
+          </p>
+        </div>
+        <div class="job-card-footer">
+          <a href="https://candidateportal.ceipal.com/jobs/job_description/S0dwMTlVbHJoaFExdlFQQ2paSHJGdz09" class="apply-link" target="_blank">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- Job Card 5 -->
+      <div class="job-card">
+        <div class="job-card-header">
+          <h3>Senior Java Backend Developer</h3>
+          <div class="job-meta">
+            <span class="job-meta-item">
+              <i class="fas fa-map-marker-alt"></i> Hyderabad
+            </span>
+            <span class="job-meta-item">
+              <i class="far fa-clock"></i> Full-time
+            </span>
+          </div>
+          <span class="job-type">Senior</span>
+        </div>
+        <div class="job-card-body">
+          <p class="job-description">
+            Senior developer to lead our backend development efforts and architect robust Java solutions. 
+            Minimum 5 years experience with microservices architecture required.
+          </p>
+        </div>
+        <div class="job-card-footer">
+          <a href="https://candidateportal.ceipal.com/jobs/job_description/b0VUcmw3N05GVFJvaU5QZFE0eDRQUT09" class="apply-link" target="_blank">Apply Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="/images/Quantum-pulse-Technologies-logo.png" alt="Quantum Pulse Logo">
+        <p>Unlock Talent, Accelerate Innovation</p>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="news.html">News & Events</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Case Studies</a></li>
+          <li><a href="#">White Papers</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Connect With Us</h4>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/company/quantum-pulse-technologies/"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="https://wa.me/919952229211"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Quantum Pulse Technologies Pvt. Ltd. | <a href="/privacy-policy.html">Privacy Policy</a> | <a href="/terms.html">Terms of Service</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu toggle functionality would go here
+      const toggleBtn = document.querySelector('.toggle_btn');
+      // You would add click handlers for mobile menu
+    });
+  </script>
+</body>
+</html>
