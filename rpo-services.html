@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPO Services - QuantumPulse Technologies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #016dfb;
+            --dark-bg: #0b1a3a;
+            --light-bg: #f6f4f4;
+            --text-dark: #020202;
+            --text-light: #e0bfbf;
+            --hover-blue: #0056b3;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        /* Navigation Bar */
+        nav {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 50px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1900px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            margin-left: 4rem;
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            z-index: 1;
+            list-style: none;
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            margin: 0;
+            padding: 0.5rem 1rem;
+        }
+        
+        .dropdown-menu a {
+            color: var(--dark-bg);
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown-menu a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .nav-icons a {
+            color: white;
+            margin-left: 1rem;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-icons a:hover {
+            color: var(--primary-blue);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1521791055366-0d553872125f') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease;
+            color: black;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s 0.5s ease both;
+            color: black;
+        }
+        
+        .hero-button {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: fadeIn 1s 1s ease both;
+        }
+        
+        .hero-button:hover {
+            background-color: var(--hover-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Main Content */
+        .section-box {
+            background: #ffffff;
+            border-radius: 10px;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .section-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            text-align: center;
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        h2:hover {
+            color: var(--hover-blue);
+        }
+        
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            padding: 1rem;
+        }
+        
+        .service {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service img {
+            width: 100%;
+            border-radius: 10px;
+            height: 180px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .service:hover img {
+            transform: scale(1.05);
+        }
+        
+        .service h3 {
+            margin: 0;
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .service:hover h3 {
+            color: var(--hover-blue);
+        }
+        
+        .service p {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 0;
+        }
+        
+        /* Process Section */
+        .process-section {
+            background: var(--dark-bg);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 250px;
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+        
+        /* Industries Section */
+        .industries {
+            padding: 4rem 2rem;
+            background: var(--light-bg);
+        }
+        
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .industry-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .industry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 4rem 2rem;
+            background: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-bg));
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary-blue);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: var(--hover-blue);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+        
+        .footer-logo {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .footer-social a {
+            color: white;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <span>QUANTUMPULSE TECHNOLOGIES</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="#services">Services <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="rpo-services.html">RPO Services</a></li>
+                        <li><a href="design-services.html">Design Services</a></li>
+                        <li><a href="iot.html">IoT Services</a></li>
+                        <li><a href="ai.html">AI Services</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://candidateportal.ceipal.com/jobs/job_description/TnlDVWIzemhRdXRHT3ZKN2t4REViUT09">Careers</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="infra.html">Infrastructure</a></li>
+                <li><a href="/life.html">Culture@QP</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="https://www.linkedin.com/company/quantum-pulse-technologies/"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="+91 9176439425"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Strategic Recruitment Solutions</h1>
+            <p>Transform your talent acquisition with our comprehensive RPO services tailored to your business needs</p>
+            <a href="#services" class="hero-button">Explore RPO Solutions</a>
+        </div>
+    </section>
+
+    <!-- RPO Services Section -->
+    <section class="section" id="services">
+        <div class="section-box">
+            <h2>Our RPO Services</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">We offer customized recruitment process solutions to scale your business. Our robust RPO solutions effectively attract talent while minimizing hiring time (TAT) and costs.</p>
+            <div class="services">
+                <div class="service">
+                    <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f" alt="One-Time Placements">
+                    <h3>One-Time Placements</h3>
+                    <p>Our one-time placement service sources candidates based on your job description. We collaborate closely to screen and select candidates who meet both technical and cultural requirements, ensuring a seamless hiring experience.</p>
+                </div>
+                <div class="service">
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095" alt="Permanent Staffing">
+                    <h3>Permanent Staffing</h3>
+                    <p>We specialize in recruiting technical staff for deployment to your site. Staff remain on our payroll for minimum 12 months, giving you flexibility while we handle recruitment, payroll and administration.</p>
+                </div>
+                <div class="service">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" alt="Project-Based Placements">
+                    <h3>Project-Based Placements</h3>
+                    <p>Ideal for short-term needs, we provide specialized technical staff for 3-6 month projects. Avoid long-term commitments while ensuring timely execution of your critical projects.</p>
+                </div>
+                <div class="service">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" alt="Volume Hiring">
+                    <h3>Volume Hiring</h3>
+                    <p>Our scalable solutions handle high-volume recruitment needs efficiently, maintaining quality while meeting aggressive hiring timelines for your business growth.</p>
+                </div>
+                <div class="service">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216" alt="Executive Search">
+                    <h3>Executive Search</h3>
+                    <p>Specialized recruitment for leadership roles, combining market intelligence with discreet search methodologies to identify and attract top executive talent.</p>
+                </div>
+                <div class="service">
+                    <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6" alt="Talent Mapping">
+                    <h3>Talent Mapping</h3>
+                    <p>Comprehensive market analysis to identify and engage with potential candidates, creating pipelines for current and future hiring needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <h2>Our Recruitment Process</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <h3>Requirement Analysis</h3>
+                <p>We begin with in-depth discussions to understand your specific talent needs, company culture, and position requirements.</p>
+            </div>
+            <div class="process-step">
+                <h3>Talent Sourcing</h3>
+                <p>Our team leverages multiple channels including databases, social networks, and referrals to identify qualified candidates.</p>
+            </div>
+            <div class="process-step">
+                <h3>Screening & Assessment</h3>
+                <p>Rigorous screening processes including technical evaluations and behavioral assessments ensure candidate quality.</p>
+            </div>
+            <div class="process-step">
+                <h3>Interview Coordination</h3>
+                <p>We manage the entire interview process, from scheduling to feedback collection, streamlining your hiring workflow.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries">
+        <h2>Industries We Serve</h2>
+        <div class="industry-grid">
+            <div class="industry-card">
+                <h3>Technology</h3>
+                <p>Software, Hardware, IT Services</p>
+            </div>
+            <div class="industry-card">
+                <h3>Engineering</h3>
+                <p>Manufacturing, Automotive, Industrial</p>
+            </div>
+            <div class="industry-card">
+                <h3>Healthcare</h3>
+                <p>Pharma, Medical Devices, Biotech</p>
+            </div>
+            <div class="industry-card">
+                <h3>Finance</h3>
+                <p>Banking, Insurance, Fintech</p>
+            </div>
+            <div class="industry-card">
+                <h3>Retail</h3>
+                <p>E-commerce, Consumer Goods</p>
+            </div>
+            <div class="industry-card">
+                <h3>Telecom</h3>
+                <p>Networking, 5G, IoT</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>Client Success Stories</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"QuantumPulse transformed our hiring process, reducing time-to-fill by 40% while improving candidate quality significantly."</p>
+                <p><strong>Sarah Johnson</strong><br>HR Director, TechSolutions Inc.</p>
+            </div>
+            <div class="testimonial-card">
+                <p>"Their project-based staffing solution helped us scale up quickly for a critical product launch without long-term commitments."</p>
+                <p><strong>Michael Chen</strong><br>VP Engineering, NextGen Devices</p>
+            </div>
+            <div class="testimonial-card">
+                <p>"The executive search team found us the perfect CTO when we needed it most. Their network and process are exceptional."</p>
+                <p><strong>Priya Patel</strong><br>CEO, Finovate Startup</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Transform Your Hiring?</h2>
+        <p>Partner with us to build your dream team with less effort and better results.</p>
+        <a href="contact.html" class="cta-button">Get Started Today</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h3>QUANTUMPULSE TECHNOLOGIES</h3>
+                <p>Unlock Talent, Accelerate Innovation</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="rpo-services.html">RPO Services</a></li>
+                    <li><a href="design-services.html">Design Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Connect With Us</h3>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Quantum Pulse Technologies Pvt. Ltd. | <a href="/privacy-policy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+</body>
+</html>
